@@ -1,4 +1,5 @@
 var { getPriceLogoNewsSummary } = require('../services/stockLookup');
+var getDate = require('../utils/getDate');
 
 module.exports = {
     fetchStockTicker: async (req, res) => {
@@ -13,14 +14,14 @@ module.exports = {
                 'Content-Type': 'text/html'
             }); // http header
             res.write('<h1> Bad Request </h1>'); //write a response
-            req.logToFile(`BAD REQUEST 404 ${req.url}`) ;
+            req.logToFile(`BAD REQUEST 404 ${req.url} ${getDate()}`) ;
             res.end(); //end the response
             return ;
         }
         let payload = await getPriceLogoNewsSummary(symbol);
         res.writeHead(200, { "Content-Type": "application/json" });
         var json = JSON.stringify(payload);
-        req.logToFile(`SUCCESSFULL REQUEST 200 ${req.url}`) ;
+        req.logToFile(`SUCCESSFULL REQUEST 200 ${req.url} ${getDate()}`) ;
         res.end(json);
     },
     test: arg => {

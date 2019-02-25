@@ -1,11 +1,21 @@
-// microsoft tick
+// --------------- Microsoft tick ----------------------
 // https://api.iextrading.com/1.0/stock/msft/price
 // https://api.iextrading.com/1.0/stock/msft/news/last
 // https://api.iextrading.com/1.0/stock/msft/logo
 
+// --------------- sample curl command ----------------------
+
+// curl -X GET \
+// 'http://localhost:3000/stockTicker?symbol=msft' \
+// -H 'Postman-Token: 0e43f166-d174-4caa-aa28-e2209e227fb7' \
+// -H 'cache-control: no-cache'
+
+// ---------------  ----------------------
+
 var http = require("http");
 var { routes } = require('./config/routes') ;
 var logToFile = require('./utils/logToFile');
+var getDate = require('./utils/getDate');
 var controllers = { 
     stockTicker:require('./controllers/stockTicker')
 }
@@ -23,9 +33,9 @@ http.createServer(async (req, res) => {
     try{
         let route = getController(req.url) ;
         req.logToFile = logToFile ;
-        req.logToFile (`REQUEST ${req.url} ${new Date()}`)
+        req.logToFile (`REQUEST ${req.url} ${getDate()}`)
         if(!route) {
-            req.logToFile (`NOT FOUND 404 ${req.url}` );
+            req.logToFile (`NOT FOUND 404 ${req.url} ${getDate()}` );
             res.writeHead(404, {
                 'Content-Type': 'text/html'
             }); // http header
@@ -36,7 +46,7 @@ http.createServer(async (req, res) => {
         await controllers[route.controller][route.action](req,res) ;
     }
     catch (err) {
-        req.logToFile (`INTERNAL SERVER ERROR 500 ${req.url}` );
+        req.logToFile (`INTERNAL SERVER ERROR 500 ${req.url} ${getDate()}` );
         res.writeHead(500, {
             'Content-Type': 'text/html'
         }); // http header
