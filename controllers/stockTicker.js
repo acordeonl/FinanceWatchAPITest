@@ -13,12 +13,14 @@ module.exports = {
                 'Content-Type': 'text/html'
             }); // http header
             res.write('<h1> Bad Request </h1>'); //write a response
+            req.logToFile(`BAD REQUEST 404 ${req.url}`) ;
             res.end(); //end the response
             return ;
         }
         let payload = await getPriceLogoNewsSummary(symbol);
         res.writeHead(200, { "Content-Type": "application/json" });
         var json = JSON.stringify(payload);
+        req.logToFile(`SUCCESSFULL REQUEST 200 ${req.url}`) ;
         res.end(json);
     },
     test: arg => {

@@ -19,17 +19,31 @@ function getController(path) {
 }
 
 //create a server object:
-http.createServer(function (req, res) {
-    let route = getController(req.url) ;
-    if(!route) {
-        res.writeHead(404, {
+http.createServer(async (req, res) => {
+    try{
+        let route = getController(req.url) ;
+        req.logToFile = logToFile ;
+        req.logToFile (`REQUEST ${req.url} ${new Date()}`)
+        if(!route) {
+            req.logToFile (`NOT FOUND 404 ${req.url}` );
+            res.writeHead(404, {
+                'Content-Type': 'text/html'
+            }); // http header
+            res.write('<h1> Not Found </h1>'); //write a response
+            res.end(); //end the response
+            return ;
+        }
+        await controllers[route.controller][route.action](req,res) ;
+    }
+    catch (err) {
+        req.logToFile (`INTERNAL SERVER ERROR 500 ${req.url}` );
+        res.writeHead(500, {
             'Content-Type': 'text/html'
         }); // http header
-        res.write('<h1> Not Found </h1>'); //write a response
+        res.write('<h1> Internal Server Error </h1>'); //write a response
         res.end(); //end the response
         return ;
     }
-    controllers[route.controller][route.action](req,res) ;
 }).listen(3000, function () {
     console.log("server start at port 3000", new Date()); //the server object listens on port 3000
 });
