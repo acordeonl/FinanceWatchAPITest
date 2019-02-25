@@ -19,7 +19,7 @@ Open project's root folder and run `node server.js`. This should start a server 
 
 ###  Logs
 
-The server will log activity to a debug.log file on the project's root. Logs include information about requests, server response and error messages.
+The server will log activity to a `debug.log` file on the project's root. Logs include information about requests, server response and error messages.
 
 ### Runing Tests 
 
