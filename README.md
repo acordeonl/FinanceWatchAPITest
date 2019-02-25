@@ -17,6 +17,10 @@ Project includes a package.json for running unit tests with [Jest](https://jestj
 
 Open project's root folder and run `node server.js`. This should start a server on port 3000 with a single endpoint (/stockTicker?symbol=:symbol).
 
+###  Logs
+
+The server will log activity to a debug.log file on the project's root. Logs include information about requests, server response and error messages.
+
 ### Runing Tests 
 
 Run `npm install` on root folder and then run `jest`.
