@@ -15,6 +15,10 @@ it('should throw and error on a bad request', async () => {
     expect(getPriceLogoNewsSummary('msftFDSAFASDFDAS')).rejects.toEqual(new Error('404'))
 });
 
+it('should throw and error on an empty query parameter', async () => {
+    expect(getPriceLogoNewsSummary()).rejects.toEqual(new Error('404'))
+});
+
 it('should get a logo url for a Stock Ticker Symbol', async () => {
     let res = await getPriceLogoNewsSummary('msft') ;
     expect(res.logo).toBe('https://storage.googleapis.com/iex/api/logos/MSFT.png')

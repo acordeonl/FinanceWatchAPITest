@@ -1,6 +1,5 @@
 /public/bower_components/*
 /node_modules/*
 debug.log
-tests/coverage/*
 .vscode/*
 package-lock.json
