@@ -46,6 +46,17 @@ http.createServer(async (req, res) => {
         await controllers[route.controller][route.action](req,res) ;
     }
     catch (err) {
+        if(err.message === 'Unknown symbol') {
+            res.writeHead(400, {
+                'Content-Type': 'text/html'
+            }); // http header
+            res.write('<h1> Bad Request </h1> Unknown symbol'); //write a response
+            req.logToFile(`BAD REQUEST 404 ${req.url} ${getDate()}`) ;
+            req.logToFile (`     ${err}` );
+            
+            res.end(); //end the response
+            return ;
+        }
         req.logToFile (`INTERNAL SERVER ERROR 500 ${req.url} ${getDate()}` );
         req.logToFile (`     ${err}` );
         res.writeHead(500, {

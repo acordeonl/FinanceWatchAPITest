@@ -1,5 +1,4 @@
-/public/bower_components/*
 /node_modules/*
-debug.log
+*.log
 .vscode/*
 package-lock.json
