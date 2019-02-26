@@ -47,6 +47,7 @@ http.createServer(async (req, res) => {
     }
     catch (err) {
         req.logToFile (`INTERNAL SERVER ERROR 500 ${req.url} ${getDate()}` );
+        req.logToFile (`     ${err}` );
         res.writeHead(500, {
             'Content-Type': 'text/html'
         }); // http header

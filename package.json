@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/acordeonl/FinanceWatchAPITest.git"
   },
+  "engines": {
+      "node": "10.5.1"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {

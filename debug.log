@@ -1,12 +1,9 @@
-REQUEST /stockTicker?symbol=MSFTFSDAFASD 02/25/2019 14:05:34
-INTERNAL SERVER ERROR 500 /stockTicker?symbol=MSFTFSDAFASD 02/25/2019 14:05:34
-REQUEST /stockTicker?symbol=msft 02/25/2019 14:06:41
-SUCCESSFULL REQUEST 200 /stockTicker?symbol=msft 02/25/2019 14:06:43
-REQUEST /stockTicker?symbol=msft 02/25/2019 14:06:54
-SUCCESSFULL REQUEST 200 /stockTicker?symbol=msft 02/25/2019 14:06:55
-REQUEST /stockTicker?symbol=msft 02/25/2019 14:34:57
-SUCCESSFULL REQUEST 200 /stockTicker?symbol=msft 02/25/2019 14:35:00
-REQUEST /stockTicker?symbol=msft 02/25/2019 14:50:36
-SUCCESSFULL REQUEST 200 /stockTicker?symbol=msft 02/25/2019 14:50:38
-REQUEST /stockTicker?symbol=msftfdsafdsafsadfdas 02/25/2019 14:50:50
-INTERNAL SERVER ERROR 500 /stockTicker?symbol=msftfdsafdsafsadfdas 02/25/2019 14:50:50
+REQUEST /stockTicker?symbfdasfadsol=msftfsadfsdafasdfasfdsa%20fsadfsda 02/26/2019 14:56:14
+BAD REQUEST 404 /stockTicker?symbfdasfadsol=msftfsadfsdafasdfasfdsa%20fsadfsda 02/26/2019 14:56:14
+REQUEST /stockTicker 02/26/2019 14:56:21
+BAD REQUEST 404 /stockTicker 02/26/2019 14:56:21
+REQUEST /stockTicker? 02/26/2019 14:56:28
+BAD REQUEST 404 /stockTicker? 02/26/2019 14:56:28
+REQUEST /stockTicker?symbol=msftfsadfsdafasdfasfdsa%20fsadfsda 02/26/2019 14:56:30
+INTERNAL SERVER ERROR 500 /stockTicker?symbol=msftfsadfsdafasdfasfdsa%20fsadfsda 02/26/2019 14:56:36
+     Error: Unknown symbol

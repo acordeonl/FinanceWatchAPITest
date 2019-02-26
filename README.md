@@ -1,3 +1,8 @@
+[Demo](https://acordeonl-financewatchapitest-1.glitch.me/stockTicker?symbol=msft)
+
+[Glitch](https://glitch.com/edit/#!/acordeonl-financewatchapitest-1)
+
+
 ## Description
 
 API built with Node.js. Project includes a file structure designed to easily add routes, controllers and services in order to build new endpoints. Routes include GET requests with query parameters. The following CURL command gets a response with a payload for the symbol specified on the query parameters. 
